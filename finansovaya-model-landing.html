@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бизнес-модель «на коленке» для самозанятых — Excel-таблица за 490₽</title>
+<meta name="description" content="Готовая Excel-таблица для самозанятых: учёт доходов, расходов, расчёт налога НПД 4% и 6%, прибыль по месяцам и срок окупаемости. Без бухгалтера. Работает в Google Sheets.">
+<meta name="keywords" content="финансовая модель для самозанятых, бизнес-модель самозанятый, таблица учёта доходов самозанятого, расчёт налога НПД, Excel для самозанятых, как вести финансы самозанятому, таблица доходов и расходов самозанятый, финансовый учёт самозанятый">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Бизнес-модель на коленке">
+<link rel="canonical" href="https://ваш-сайт.ru/">
+
+<!-- Open Graph для соцсетей и мессенджеров -->
+<meta property="og:title" content="Бизнес-модель «на коленке» для самозанятых — Excel-таблица за 490₽">
+<meta property="og:description" content="Готовая Excel-таблица: доходы, расходы, налог НПД, прибыль и срок окупаемости. Заполните за 15 минут — без бухгалтера.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Яндекс -->
+<meta name="yandex-verification" content="ВАШ_КОД_ВЕРИФИКАЦИИ">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #151820;
+    --card: #1c2030;
+    --accent: #e8c547;
+    --accent2: #f0a500;
+    --text: #f0f0f0;
+    --muted: #8a8fa8;
+    --border: rgba(232,197,71,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(13,15,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 2px;
+    color: var(--accent);
+  }
+  .nav-cta {
+    background: var(--accent);
+    color: #0d0f14;
+    border: none; padding: 0.6rem 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 0.8rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 5% 6rem;
+    position: relative;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(232,197,71,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,197,71,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,197,71,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 32px; height: 2px; background: var(--accent);
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    line-height: 0.95; letter-spacing: 1px;
+    max-width: 900px;
+    position: relative;
+  }
+  h1 em {
+    font-style: normal; color: var(--accent);
+    text-shadow: 0 0 80px rgba(232,197,71,0.3);
+  }
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300; color: var(--muted);
+    max-width: 520px; line-height: 1.7;
+    margin: 2rem 0 3rem;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0d0f14;
+    border: none; padding: 1rem 2.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 rgba(232,197,71,0);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,197,71,0.3);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(240,240,240,0.2);
+    padding: 1rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; font-size: 0.9rem;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-price-hint {
+    margin-top: 1.5rem;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .hero-price-hint strong { color: var(--text); }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 5%;
+    display: flex; gap: 2rem;
+    flex-wrap: wrap; justify-content: space-around;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 0.3rem;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05; margin-bottom: 1rem;
+  }
+  h2 em { font-style: normal; color: var(--accent); }
+  .section-sub {
+    font-size: 1rem; color: var(--muted); max-width: 540px;
+    line-height: 1.7; margin-bottom: 3.5rem;
+  }
+
+  /* PROBLEMS */
+  .problems { background: var(--surface); }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .problem-card {
+    background: var(--card);
+    padding: 2rem;
+  }
+  .problem-icon {
+    font-size: 2rem; margin-bottom: 1rem;
+  }
+  .problem-card h3 {
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .problem-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .problem-card.highlight { border-left: 3px solid var(--accent); }
+
+  /* WHAT'S INSIDE */
+  .inside-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .inside-item {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: border-color 0.2s;
+    background: var(--surface);
+  }
+  .inside-item:hover { border-color: var(--accent); }
+  .inside-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; color: var(--accent);
+    line-height: 1; min-width: 2rem;
+  }
+  .inside-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .inside-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--surface); }
+  .steps {
+    display: flex; flex-direction: column; gap: 0;
+    max-width: 720px;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute; left: 19px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .step {
+    display: flex; gap: 2rem; align-items: flex-start;
+    padding: 2rem 0;
+    position: relative;
+  }
+  .step-dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; color: var(--accent);
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .step-content h4 { font-weight: 700; margin-bottom: 0.3rem; }
+  .step-content p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .testimonial {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem; color: rgba(232,197,71,0.08);
+    position: absolute; top: -10px; left: 10px;
+    line-height: 1; pointer-events: none;
+  }
+  .testimonial p {
+    font-size: 0.9rem; line-height: 1.7; color: var(--text);
+    position: relative; z-index: 1;
+    margin-bottom: 1.2rem;
+  }
+  .testimonial-author {
+    font-size: 0.78rem; font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .testimonial-role {
+    font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem;
+  }
+
+  /* PRICING */
+  .pricing { background: var(--surface); }
+  .pricing-wrapper {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    flex: 1; min-width: 260px; max-width: 360px;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative;
+  }
+  .price-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .price-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(232,197,71,0.05) 100%);
+  }
+  .price-badge {
+    position: absolute; top: -1px; right: 2rem;
+    background: var(--accent); color: #0d0f14;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+  }
+  .price-name {
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1rem;
+  }
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem; color: var(--text); line-height: 1;
+  }
+  .price-amount span { font-size: 1.5rem; }
+  .price-period {
+    font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem;
+  }
+  .price-old {
+    font-size: 0.9rem; color: var(--muted);
+    text-decoration: line-through; margin-top: 0.5rem;
+  }
+  .price-divider {
+    height: 1px; background: var(--border);
+    margin: 1.5rem 0;
+  }
+  .price-features { list-style: none; margin-bottom: 2rem; }
+  .price-features li {
+    font-size: 0.875rem; color: var(--muted);
+    padding: 0.4rem 0;
+    display: flex; gap: 0.7rem; align-items: flex-start;
+  }
+  .price-features li::before {
+    content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0;
+  }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+    cursor: pointer;
+  }
+  .faq-q {
+    font-weight: 600; font-size: 0.95rem;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem;
+  }
+  .faq-q::after { content: '+'; color: var(--accent); font-size: 1.3rem; flex-shrink: 0; }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-a {
+    font-size: 0.875rem; color: var(--muted);
+    line-height: 1.7; max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding-top 0.3s;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-top: 1rem; }
+
+  /* CTA BOTTOM */
+  .cta-bottom {
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
+    border-top: 1px solid var(--border);
+    padding: 7rem 5%;
+    position: relative; overflow: hidden;
+  }
+  .cta-bottom-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,197,71,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-bottom h2 { max-width: 700px; margin: 0 auto 1.5rem; position: relative; }
+  .cta-bottom p { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; position: relative; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  footer p { font-size: 0.78rem; color: var(--muted); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate { opacity: 0; }
+  .animate.in { animation: fadeUp 0.7s ease forwards; }
+
+  @media (max-width: 600px) {
+    .stats-bar { gap: 1.5rem; }
+    nav .nav-cta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Бизнес «на коленке»</div>
+  <a href="#pricing" class="nav-cta" style="text-decoration:none">Купить сейчас</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-eyebrow">Excel-таблица для самозанятых</div>
+  <h1>Бизнес-модель<br><em>«на коленке»</em><br>за 15 минут</h1>
+  <p class="hero-sub">Готовая Excel-таблица: вносите свои цифры — она сама считает доходы, расходы, налоги, прибыль и срок окупаемости. Без бухгалтера и специальных знаний.</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-primary" style="text-decoration:none;display:inline-block">Получить таблицу</a>
+    <a href="#inside" class="btn-ghost" style="text-decoration:none;display:inline-block">Что внутри?</a>
+  </div>
+  <p class="hero-price-hint">Разовая покупка. <strong>Никаких подписок.</strong> Работает в Excel и Google Sheets.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">1 200+</div>
+    <div class="stat-label">Клиентов</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4.9★</div>
+    <div class="stat-label">Средняя оценка</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">15 мин</div>
+    <div class="stat-label">До первых цифр</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">0₽</div>
+    <div class="stat-label">Бухгалтерская помощь</div>
+  </div>
+</div>
+
+<!-- PROBLEMS -->
+<section class="problems">
+  <div class="section-tag">Проблема</div>
+  <h2>Вы ведёте бизнес<br><em>вслепую?</em></h2>
+  <p class="section-sub">Большинство самозанятых не понимают, окупается ли их дело и когда ждать первой нормальной прибыли.</p>
+  <div class="problems-grid">
+    <div class="problem-card highlight">
+      <div class="problem-icon">💸</div>
+      <h3>«Вложил деньги — не знаю, окупится ли»</h3>
+      <p>Потратили на старт, работаете — а когда вернётся вложенное? Без расчётов это всегда тревога.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📊</div>
+      <h3>Налоги считаете на глаз</h3>
+      <p>НПД 4% или 6% — непонятно, сколько отложить с каждой продажи, чтобы не влететь на конец квартала.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📁</div>
+      <h3>Таблица в Excel сделана «криво»</h3>
+      <p>Без формул, без структуры. Каждый месяц считаете заново и всё равно не уверены в цифрах.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🤷</div>
+      <h3>Не знаете реальную прибыль</h3>
+      <p>Выручка есть, а сколько осталось после расходов, налогов и вложений — непонятно.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section id="inside">
+  <div class="section-tag">Содержание</div>
+  <h2>Что внутри<br><em>таблицы</em></h2>
+  <p class="section-sub">Один лист — полная картина бизнеса на 12 месяцев. Все расчёты связаны формулами: меняете одну цифру — пересчитывается всё.</p>
+  <div class="inside-list">
+    <div class="inside-item">
+      <div class="inside-num">01</div>
+      <div class="inside-text">
+        <h4>Инвестиционные затраты</h4>
+        <p>Мебель, IT-программы, оборудование, технологии — вносите стартовые вложения, таблица суммирует автоматически.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">02</div>
+      <div class="inside-text">
+        <h4>Операционные расходы</h4>
+        <p>Сторонние специалисты, материалы, аренда с коммуналкой, маркетинг — помесячный учёт по каждой статье.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">03</div>
+      <div class="inside-text">
+        <h4>Налоги 4% / 6% (НПД)</h4>
+        <p>Встроенный расчёт налога для самозанятых — в среднем 5%.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">04</div>
+      <div class="inside-text">
+        <h4>Доходы и средний чек</h4>
+        <p>Количество продаж в месяц × средний чек = выручка. Один раз вносите чек — доходы считаются на весь год.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">05</div>
+      <div class="inside-text">
+        <h4>Прибыль и накопительный итог</h4>
+        <p>Видите реальную прибыль каждого месяца и накопленный результат — нарастающим итогом за весь год.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">06</div>
+      <div class="inside-text">
+        <h4>Срок окупаемости</h4>
+        <p>Таблица автоматически считает, через сколько месяцев вы отобьёте первоначальные инвестиции.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">07</div>
+      <div class="inside-text">
+        <h4>Горизонт планирования — 12 месяцев</h4>
+        <p>Полный годовой цикл: от старта до выхода на стабильную прибыль — всё в одном файле.</p>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-num">08</div>
+      <div class="inside-text">
+        <h4>Простота заполнения</h4>
+        <p>Никаких сложных формул вручную. Вводите только свои данные — серые ячейки. Остальное считается само.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-tag">Как начать</div>
+  <h2>Запустите за<br><em>15 минут</em></h2>
+  <p class="section-sub">Не нужно быть финансистом. Вводите только свои числа в серые ячейки — таблица считает сама.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <h4>Купите и скачайте файл</h4>
+        <p>Excel-файл придёт на почту сразу после оплаты. Открывайте в Excel или загружайте в Google Sheets.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <h4>Внесите стартовые вложения</h4>
+        <p>Мебель, оборудование, IT-программы — укажите, сколько потратили или планируете потратить на запуск.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <h4>Заполните расходы и доходы</h4>
+        <p>Аренда, материалы, маркетинг, специалисты. Средний чек и количество продаж в месяц — таблица посчитает выручку.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <h4>Получите готовую картину на год</h4>
+        <p>Прибыль по месяцам, накопительный итог и срок окупаемости — всё автоматически.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-tag">Отзывы</div>
+  <h2>Что говорят<br><em>клиенты</em></h2>
+  <p class="section-sub">Самозанятые, которые уже ведут финансы по таблице.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>Купила таблицу, когда поняла, что работаю уже год, а что остаётся — непонятно. За первый же месяц обнаружила, что трачу на подписки 18 000₽ и не замечаю. Теперь вижу всё.</p>
+      <div class="testimonial-author">Анастасия К.</div>
+      <div class="testimonial-role">Копирайтер, Москва · Самозанятая</div>
+    </div>
+    <div class="testimonial">
+      <p>Всегда боялся налогов — никогда не знал, сколько откладывать с каждого заказа. Теперь таблица считает за меня, и я спокойно вывожу деньги себе без стресса в конце квартала.</p>
+      <div class="testimonial-author">Дмитрий Л.</div>
+      <div class="testimonial-role">Веб-разработчик, Екатеринбург · Самозанятый</div>
+    </div>
+    <div class="testimonial">
+      <p>Простая, понятная, без лишнего. Заполнила за вечер — и сразу стало ясно, через сколько месяцев окупятся вложения в оборудование. Наконец-то считаю, а не угадываю.</p>
+      <div class="testimonial-author">Марина Е.</div>
+      <div class="testimonial-role">Мастер маникюра, Санкт-Петербург · Самозанятая</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-tag">Тарифы</div>
+  <h2>Выберите свой<br><em>формат</em></h2>
+  <p class="section-sub">Готовая таблица или модель под ваш конкретный бизнес — выбор за вами.</p>
+  <div class="pricing-wrapper">
+    <div class="price-card">
+      <div class="price-name">Готовая таблица</div>
+      <div class="price-amount"><span>₽</span>490</div>
+      <div class="price-old">Обычная цена: 990₽</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Excel-таблица «Бизнес-модель на коленке»</li>
+        <li>Учёт инвестиционных затрат (мебель, оборудование, IT)</li>
+        <li>Операционные расходы по статьям</li>
+        <li>Автоматический расчёт налога НПД (4% / 6%)</li>
+        <li>Выручка и прибыль по месяцам</li>
+        <li>Накопительный итог за год</li>
+        <li>Расчёт срока окупаемости</li>
+        <li>Совместимость с Google Sheets</li>
+      </ul>
+      <button class="btn-primary" style="width:100%">Купить за 490₽</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">Под ваш бизнес</div>
+      <div class="price-name">Модель под заказ</div>
+      <div class="price-amount" style="font-size:2.5rem">По запросу</div>
+      <div style="height:1.45rem"></div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Разработка финансовой модели под вашу нишу и специфику</li>
+        <li>Ваши статьи доходов и расходов — не шаблонные</li>
+        <li>Любое количество источников дохода и направлений</li>
+        <li>Индивидуальная налоговая логика (НПД, УСН и др.)</li>
+        <li>Дашборд и графики под ваши показатели</li>
+        <li>Объяснение и сдача модели лично вам</li>
+      </ul>
+      <form id="order-form" action="https://formspree.io/f/mjgpkarl" method="POST" style="display:flex;flex-direction:column;gap:0.7rem;margin-bottom:0">
+        <input type="text" name="name" placeholder="Ваше имя" required style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.75rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.875rem;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+        <input type="text" name="contact" placeholder="Телефон или Telegram" required style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.75rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.875rem;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+        <textarea name="message" placeholder="Опишите ваш бизнес и задачу" rows="3" required style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.75rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.875rem;outline:none;resize:none;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        <input type="hidden" name="_subject" value="Новая заявка на финансовую модель под заказ">
+        <input type="hidden" name="_language" value="ru">
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:0.3rem" id="submit-btn">Оставить заявку</button>
+        <p id="form-success" style="display:none;color:var(--accent);font-size:0.82rem;text-align:center;padding:0.5rem 0">✓ Заявка отправлена! Свяжемся с вами в ближайшее время.</p>
+        <p id="form-error" style="display:none;color:#e85447;font-size:0.82rem;text-align:center;padding:0.5rem 0">Ошибка отправки. Попробуйте ещё раз.</p>
+      </form>
+      <script>
+        document.getElementById('order-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('submit-btn');
+          btn.textContent = 'Отправляем...';
+          btn.disabled = true;
+          try {
+            const res = await fetch(this.action, {
+              method: 'POST',
+              body: new FormData(this),
+              headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              document.getElementById('form-success').style.display = 'block';
+              document.getElementById('form-error').style.display = 'none';
+              this.reset();
+              btn.textContent = 'Отправлено ✓';
+            } else {
+              throw new Error();
+            }
+          } catch {
+            document.getElementById('form-error').style.display = 'block';
+            btn.textContent = 'Оставить заявку';
+            btn.disabled = false;
+          }
+        });
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-tag">Вопросы</div>
+  <h2>Часто<br><em>спрашивают</em></h2>
+  <div class="faq-list">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Нужны ли знания бухгалтерии?</div>
+      <div class="faq-a">Нет. Таблица рассчитана на тех, кто никогда не вёл финансовый учёт. Вы заполняете только серые ячейки со своими числами — все формулы уже встроены.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Работает ли в Google Sheets?</div>
+      <div class="faq-a">Да. Загрузите файл на Google Drive и откройте в Google Таблицах — все формулы сохранятся и будут работать корректно.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">На сколько месяцев рассчитана таблица?</div>
+      <div class="faq-a">На 12 месяцев. Это полный горизонт планирования: от первых вложений до выхода на стабильную прибыль. Срок окупаемости таблица считает автоматически.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Чем модель под заказ отличается от готовой таблицы?</div>
+      <div class="faq-a">Готовая таблица — универсальный шаблон для самозанятых с типовыми статьями. Модель под заказ строится под вашу конкретную нишу, направления, логику расчётов и нужные вам показатели. Подходит тем, у кого нестандартная структура доходов или расходов.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Как я получу файл после оплаты?</div>
+      <div class="faq-a">Сразу после оплаты на вашу почту придёт письмо со ссылкой для скачивания. Доступ мгновенный — никакого ожидания.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="cta-bottom-glow"></div>
+  <div class="section-tag" style="position:relative">Последний шаг</div>
+  <h2>Узнайте, окупится ли<br>ваш бизнес — <em>сегодня</em></h2>
+  <p>Заполните таблицу за 15 минут и получите честный ответ на главный вопрос любого предпринимателя.</p>
+  <a href="#pricing" class="btn-primary" style="font-size:1rem;padding:1.2rem 3rem;text-decoration:none;display:inline-block">Купить</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Бизнес-модель «на коленке» для самозанятых.</p>
+  <p style="color:var(--muted);font-size:0.75rem">Вопросы: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="65161015150a171125030c0b160009034b1710">[email&#160;protected]</a> · Telegram: @finself</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  
